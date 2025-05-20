@@ -2,10 +2,7 @@ package SDGSweden;
 
 import oru.inf.InfDB;
 import oru.inf.InfException;
-/**
- *
- * @author nicklas
- */
+
 public class SDGSweden {
     
     private static InfDB idb;
