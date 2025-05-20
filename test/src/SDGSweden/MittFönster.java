@@ -5,10 +5,6 @@ package SDGSweden;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**
- *
- * @author nicklas
- */
 public class MittFönster extends javax.swing.JFrame {
 
     /**
