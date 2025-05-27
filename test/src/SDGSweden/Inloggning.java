@@ -4,7 +4,6 @@ package SDGSweden;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -12,13 +11,15 @@ public class Inloggning extends javax.swing.JFrame {
    
     
     private InfDB idb;
+    private Validering validering;
 
     /**
      * Creates new form MittFönster
      */
     public Inloggning(InfDB idb) {
-        initComponents();
         this.idb = idb;
+        this.validering = new Validering(idb);
+        initComponents();
 
         jBtLogin.addActionListener(evt -> {
             String epost = jTextEpost.getText().trim();
@@ -32,30 +33,14 @@ public class Inloggning extends javax.swing.JFrame {
                 String sqlAid = "SELECT aid FROM anstalld WHERE epost = '" + epost + "' AND losenord = '" + losenord + "'";
                 String aid = idb.fetchSingle(sqlAid);
                 
-                if (aid != null) {
+                if (aid != null){      
+                String roll = validering.hamtaRoll(aid);
                     
-                    String sqlRoll = "SELECT behorighetsniva FROM admin WHERE aid = " + aid;
-                    String behorighet = idb.fetchSingle(sqlRoll);
-
-                    //Lägg till kod för vilket fönster vi kör
-                    switch (behorighet) {
-                        case "1":
-                            javax.swing.JOptionPane.showMessageDialog(this, "1");
-                            //Admin?
-                            break;
-                        case "2":
-                            javax.swing.JOptionPane.showMessageDialog(this, "2");
-                            //2??
-                            break;
-                        default:
-                            javax.swing.JOptionPane.showMessageDialog(this, "default");
-                            //Vanlig anställd
-                            break;
-                    }
-                    
+                    javax.swing.JOptionPane.showMessageDialog(null, "aid: " + aid + "roll: " + roll);
+                    new Meny(idb, aid).setVisible(true);
                     this.setVisible(false);
-                    
-                } else {
+                }
+                else {
                     javax.swing.JOptionPane.showMessageDialog(null, "Fel e-post eller lösenord!");
                 }
 
