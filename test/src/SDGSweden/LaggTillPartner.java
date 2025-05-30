@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package SDGSweden;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oru.inf.InfException;
 import oru.inf.InfDB;
 import javax.swing.JOptionPane;
@@ -16,6 +18,18 @@ public class LaggTillPartner extends javax.swing.JFrame {
         this.idb = idb;
         this.aid = aid;
         initComponents();
+        fyllFalt();
+    }
+    
+    private void fyllFalt()
+    {
+        try {
+            String nyttPID = idb.getAutoIncrement("partner", "pid");
+            txtPID.setText(nyttPID);
+            txtPID.setEditable(false);
+        } catch (InfException ex) {
+            Logger.getLogger(LaggTillPartner.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
   private void sparaPartnerInfo() {
@@ -126,19 +140,14 @@ public class LaggTillPartner extends javax.swing.JFrame {
 
         jLabel8.setText("Stad");
 
-        txtPID.setText("PID");
         txtPID.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtNamn.setText("Namn");
         txtNamn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtKontaktperson.setText("Kontaktperson");
         txtKontaktperson.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtEpost.setText("E-post");
         txtEpost.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtTelefon.setText("Telefon");
         txtTelefon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtTelefon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,13 +155,10 @@ public class LaggTillPartner extends javax.swing.JFrame {
             }
         });
 
-        txtAdress.setText("Adress");
         txtAdress.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtBransch.setText("Bransch");
         txtBransch.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtStad.setText("Stad");
         txtStad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setText("jButton1");

@@ -92,41 +92,30 @@ public class LaggTillAnstalld extends javax.swing.JFrame {
 
         jLabel12.setText("AID:");
 
-        textaid.setText("AID");
-
-        javdelning.setText("Avdelning");
-
-        jemail.setText("Email");
         jemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jemailActionPerformed(evt);
             }
         });
 
-        janstallningsdatum.setText("Anställningsdatum");
         janstallningsdatum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 janstallningsdatumActionPerformed(evt);
             }
         });
 
-        jadress.setText("Adress");
         jadress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jadressActionPerformed(evt);
             }
         });
 
-        jtelefon.setText("Telefon");
         jtelefon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtelefonActionPerformed(evt);
             }
         });
 
-        jefternamn.setText("Efternamn");
-
-        jfornamn.setText("Förnamn");
         jfornamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jfornamnActionPerformed(evt);
@@ -147,7 +136,6 @@ public class LaggTillAnstalld extends javax.swing.JFrame {
             }
         });
 
-        jlosenord.setText("Lösenord");
         jlosenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jlosenordActionPerformed(evt);
@@ -366,7 +354,7 @@ idb.insert(insertQuery);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GenereraLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenereraLosenActionPerformed

@@ -220,56 +220,32 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textaid">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="AID"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="javdelning">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Avdelning"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jemail">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Email"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jemailActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="janstallningsdatum">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Anst&#xe4;llningsdatum"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="janstallningsdatumActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jadress">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Adress"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jadressActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtelefon">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Telefon"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtelefonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jefternamn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Efternamn"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jfornamn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="F&#xf6;rnamn"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jfornamnActionPerformed"/>
       </Events>
@@ -291,9 +267,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jlosenord">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jlosenordActionPerformed"/>
       </Events>
