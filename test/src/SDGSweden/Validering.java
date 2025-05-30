@@ -45,7 +45,7 @@ public class Validering {
         }     
     }
     
-    public String hamtaRoll(String aid) throws InfException {
+    public static String hamtaRoll(InfDB idb, String aid) throws InfException {
         
         if (idb.fetchSingle("SELECT aid FROM admin WHERE aid = " + aid) != null) {
             return "admin";

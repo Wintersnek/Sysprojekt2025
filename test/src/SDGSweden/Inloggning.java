@@ -11,6 +11,7 @@ public class Inloggning extends javax.swing.JFrame {
    
     
     private InfDB idb;
+    private String aid;
     private Validering validering;
 
     /**
@@ -34,7 +35,7 @@ public class Inloggning extends javax.swing.JFrame {
                 String aid = idb.fetchSingle(sqlAid);
                 
                 if (aid != null){      
-                String roll = validering.hamtaRoll(aid);
+                String roll = validering.hamtaRoll(idb, aid);
                     
                     javax.swing.JOptionPane.showMessageDialog(null, "aid: " + aid + "roll: " + roll);
                     new Meny(idb, aid).setVisible(true);

@@ -189,7 +189,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtPID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="PID"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -197,7 +196,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNamn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Namn"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -205,7 +203,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtKontaktperson">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kontaktperson"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -213,7 +210,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtEpost">
       <Properties>
-        <Property name="text" type="java.lang.String" value="E-post"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -221,7 +217,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtTelefon">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefon"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -232,7 +227,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtAdress">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adress"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -240,7 +234,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtBransch">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bransch"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -248,7 +241,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtStad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Stad"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>

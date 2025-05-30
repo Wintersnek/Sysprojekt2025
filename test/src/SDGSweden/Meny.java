@@ -18,6 +18,7 @@ public class Meny extends javax.swing.JFrame {
     private InfDB idb;
     private String aid;
     private Validering validering;
+    private String pid;
     /**
      * Creates new form Meny
      */
@@ -28,23 +29,8 @@ public class Meny extends javax.swing.JFrame {
             this.aid = aid;
             this.validering = new Validering(idb);
             
-            String roll = validering.hamtaRoll(aid);
-            switch (roll.toLowerCase()){
-                case "admin":
-                    break;
-                case "projektchef":
-                    //btnEditInfo.setVisible(false);
-                    break;
-                case "handlaggare":
-                    //
-                    break;
-                case "anställd":
-                default:
-                    //
-                    break;
-            }
             
-            jLabelLoggedInUser.setText("Inloggad som: " + validering.hamtaRoll(aid));
+            jLabelLoggedInUser.setText("Inloggad som: " + validering.hamtaRoll(idb, aid));
         } catch (InfException ex) {
             Logger.getLogger(Meny.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -68,6 +54,15 @@ public class Meny extends javax.swing.JFrame {
         jButtonAnvandarInformation = new javax.swing.JButton();
         jButtonLaggTillAnstalld = new javax.swing.JButton();
         jButtonTaBortAnvandare = new javax.swing.JButton();
+        jButtonLoggaUt = new javax.swing.JButton();
+        jButtonSeProjektHand = new javax.swing.JButton();
+        jButtonProjektChefPartners = new javax.swing.JButton();
+        jButtonProjektDatum = new javax.swing.JButton();
+        jButtonSokHandlaggare = new javax.swing.JButton();
+        jButtonSePartnerHandlaggare = new javax.swing.JButton();
+        jButtonProjektchefHandläggare = new javax.swing.JButton();
+        jToggleButtonHanteraAvdelning = new javax.swing.JToggleButton();
+        jButtonPersonalLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,6 +117,69 @@ public class Meny extends javax.swing.JFrame {
             }
         });
 
+        jButtonLoggaUt.setText("Logga ut");
+        jButtonLoggaUt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoggaUtActionPerformed(evt);
+            }
+        });
+
+        jButtonSeProjektHand.setText("Se dina projekt (Handläggare)");
+        jButtonSeProjektHand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSeProjektHandActionPerformed(evt);
+            }
+        });
+
+        jButtonProjektChefPartners.setText("Se alla partners per projekt");
+        jButtonProjektChefPartners.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProjektChefPartnersActionPerformed(evt);
+            }
+        });
+
+        jButtonProjektDatum.setText("ProjektDatum");
+        jButtonProjektDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProjektDatumActionPerformed(evt);
+            }
+        });
+
+        jButtonSokHandlaggare.setText("Sök handläggare");
+        jButtonSokHandlaggare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSokHandlaggareActionPerformed(evt);
+            }
+        });
+
+        jButtonSePartnerHandlaggare.setText("Se partner handläggare");
+        jButtonSePartnerHandlaggare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSePartnerHandlaggareActionPerformed(evt);
+            }
+        });
+
+        jButtonProjektchefHandläggare.setText("ProjektChefHandläggare");
+        jButtonProjektchefHandläggare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProjektchefHandläggareActionPerformed(evt);
+            }
+        });
+
+        jToggleButtonHanteraAvdelning.setText("Hantera avdelning");
+        jToggleButtonHanteraAvdelning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonHanteraAvdelningActionPerformed(evt);
+            }
+        });
+
+        jButtonPersonalLista.setText("Personal lista");
+        jButtonPersonalLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPersonalListaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,88 +187,184 @@ public class Meny extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelLoggedInUser))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jButtonLaggTillAnstalld))
+                        .addComponent(jButtonLaggTillAnstalld)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonLoggaUt))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSkapaNyttLandBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(VisaAvdelningsProjektbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jLabelLoggedInUser)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSkapaNyttLandBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VisaAvdelningsProjektbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButtonAdminProjekt))
+                    .addComponent(jButtonAnvandarInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jButtonAdminProjekt))
-                            .addComponent(jButtonAnvandarInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(71, 71, 71)
-                        .addComponent(jButtonTaBortAnvandare)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                                .addComponent(jButtonProjektChefPartners)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(jButtonTaBortAnvandare))
+                                    .addComponent(jButtonSeProjektHand))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                                .addComponent(jButtonPersonalLista)
+                                .addGap(46, 46, 46))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonSokHandlaggare)
+                            .addComponent(jButtonProjektDatum)
+                            .addComponent(jButtonSePartnerHandlaggare))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(jToggleButtonHanteraAvdelning)
+                                .addGap(33, 33, 33))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonProjektchefHandläggare)
+                                .addContainerGap())))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLoggedInUser)
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSkapaNyttLandBtn)
-                    .addComponent(jButtonTaBortAnvandare))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(VisaAvdelningsProjektbtn)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAdminProjekt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonAnvandarInformation)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonLaggTillAnstalld)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jSkapaNyttLandBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jButtonSeProjektHand)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonTaBortAnvandare)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(VisaAvdelningsProjektbtn)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonProjektChefPartners)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAdminProjekt)
+                            .addComponent(jButtonProjektDatum)
+                            .addComponent(jButtonProjektchefHandläggare))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAnvandarInformation)
+                            .addComponent(jButtonSokHandlaggare)
+                            .addComponent(jToggleButtonHanteraAvdelning))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonLaggTillAnstalld)
+                            .addComponent(jButtonSePartnerHandlaggare)
+                            .addComponent(jButtonPersonalLista))
+                        .addGap(0, 61, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonLoggaUt)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jSkapaNyttLandBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSkapaNyttLandBtnActionPerformed
-        new SkapaNyttLand(idb, aid).setVisible(true);
-    }//GEN-LAST:event_jSkapaNyttLandBtnActionPerformed
+    private void jButtonSePartnerHandlaggareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSePartnerHandlaggareActionPerformed
+        new SePartnerHandlaggare(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButtonSePartnerHandlaggareActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new LaggTillPartner(idb, aid).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonSokHandlaggareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSokHandlaggareActionPerformed
+        new SokHandlaggare(idb,aid).setVisible(true);
+    }//GEN-LAST:event_jButtonSokHandlaggareActionPerformed
 
-    private void VisaAvdelningsProjektbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAvdelningsProjektbtnActionPerformed
-        new VisaAvdelningsProjekt(idb, aid).setVisible(true);
-    }//GEN-LAST:event_VisaAvdelningsProjektbtnActionPerformed
+    private void jButtonProjektDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProjektDatumActionPerformed
+        new ProjektDatum(idb,aid).setVisible(true);
+    }//GEN-LAST:event_jButtonProjektDatumActionPerformed
 
-    private void jButtonAdminProjektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminProjektActionPerformed
-        new AdminProjekt(idb, aid).setVisible(true);
-    }//GEN-LAST:event_jButtonAdminProjektActionPerformed
+    private void jButtonProjektChefPartnersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProjektChefPartnersActionPerformed
+        new ProjektchefPartners(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButtonProjektChefPartnersActionPerformed
 
-    private void jButtonAnvandarInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnvandarInformationActionPerformed
-        new AnvandarInformation(idb, aid).setVisible(true);
-    }//GEN-LAST:event_jButtonAnvandarInformationActionPerformed
+    private void jButtonSeProjektHandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeProjektHandActionPerformed
+        new SeProjektHandlaggare(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButtonSeProjektHandActionPerformed
+
+    private void jButtonLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoggaUtActionPerformed
+        this.dispose();
+        new Inloggning(idb).setVisible(true);
+    }//GEN-LAST:event_jButtonLoggaUtActionPerformed
+
+    private void jButtonTaBortAnvandareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTaBortAnvandareActionPerformed
+        new TaBortAnvandare(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButtonTaBortAnvandareActionPerformed
 
     private void jButtonLaggTillAnstalldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLaggTillAnstalldActionPerformed
         new LaggTillAnstalld(idb, aid).setVisible(true);
     }//GEN-LAST:event_jButtonLaggTillAnstalldActionPerformed
 
-    private void jButtonTaBortAnvandareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTaBortAnvandareActionPerformed
-       new TaBortAnvandare(idb, aid).setVisible(true);
-    }//GEN-LAST:event_jButtonTaBortAnvandareActionPerformed
+    private void jButtonAnvandarInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnvandarInformationActionPerformed
+        new AnvandarInformation(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButtonAnvandarInformationActionPerformed
+
+    private void jButtonAdminProjektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminProjektActionPerformed
+        new AdminProjekt(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButtonAdminProjektActionPerformed
+
+    private void VisaAvdelningsProjektbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAvdelningsProjektbtnActionPerformed
+        new VisaAvdelningsProjekt(idb, aid).setVisible(true);
+    }//GEN-LAST:event_VisaAvdelningsProjektbtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new LaggTillPartner(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jSkapaNyttLandBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSkapaNyttLandBtnActionPerformed
+        new SkapaNyttLand(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jSkapaNyttLandBtnActionPerformed
+
+    private void jButtonProjektchefHandläggareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProjektchefHandläggareActionPerformed
+        new ProjektchefHandläggare(idb, pid, aid, validering).setVisible(true);
+    }//GEN-LAST:event_jButtonProjektchefHandläggareActionPerformed
+
+    private void jToggleButtonHanteraAvdelningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonHanteraAvdelningActionPerformed
+        new HanteraAvdelning(idb).setVisible(true);
+    }//GEN-LAST:event_jToggleButtonHanteraAvdelningActionPerformed
+
+    private void jButtonPersonalListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPersonalListaActionPerformed
+        new PersonalLista(idb, aid).setVisible(true);
+    }//GEN-LAST:event_jButtonPersonalListaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,9 +376,18 @@ public class Meny extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAdminProjekt;
     private javax.swing.JButton jButtonAnvandarInformation;
     private javax.swing.JButton jButtonLaggTillAnstalld;
+    private javax.swing.JButton jButtonLoggaUt;
+    private javax.swing.JButton jButtonPersonalLista;
+    private javax.swing.JButton jButtonProjektChefPartners;
+    private javax.swing.JButton jButtonProjektDatum;
+    private javax.swing.JButton jButtonProjektchefHandläggare;
+    private javax.swing.JButton jButtonSePartnerHandlaggare;
+    private javax.swing.JButton jButtonSeProjektHand;
+    private javax.swing.JButton jButtonSokHandlaggare;
     private javax.swing.JButton jButtonTaBortAnvandare;
     private javax.swing.JLabel jLabelLoggedInUser;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jSkapaNyttLandBtn;
+    private javax.swing.JToggleButton jToggleButtonHanteraAvdelning;
     // End of variables declaration//GEN-END:variables
 }
